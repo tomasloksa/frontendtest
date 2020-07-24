@@ -1,0 +1,31 @@
+.sidebar {
+  width: 25%;
+  display: inline-block;
+  border-style: solid;
+  border-color: grey;
+  border-width: 0 1px 0 0;
+
+  input {
+    padding: 0.5rem;
+  }
+
+  .paid-info {
+    width: 25%;
+    position: fixed;
+    bottom: 0;
+    padding: 0 0 1rem 1rem;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px 1px 0 0;
+  }
+}
+
+.add-invoice {
+  width: 75%;
+  display: inline-block;
+
+  button {
+    margin: auto;
+    display: block;
+  }
+}
