@@ -1,4 +1,4 @@
-export class Invoice {
+export interface Invoice {
   name: string;
   price: number;
 }

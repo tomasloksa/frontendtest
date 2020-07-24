@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { InvoicingComponent } from './invoicing/invoicing.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { InvoicingComponent } from './components/invoicing/invoicing.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },

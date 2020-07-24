@@ -1,29 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Invoice } from '../invoice';
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Invoice } from '../models/invoice';
 
-@Component({
-  selector: 'app-invoicing',
-  templateUrl: './invoicing.component.html',
-  styleUrls: ['./invoicing.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class InvoicingComponent implements OnInit {
+export class CreateInvoiceService {
 
-  constructor() { }
-
-  invoices: Array<Invoice> = [];
-  paidCounter = 0;
-  notPaidCounter = 0;
-  searchText: string;
-
-  ngOnInit() {
-    for (let i = 0; i < 500; i++) {
-      this.invoices.push(this.createinvoice());
-    }
-  }
+  constructor(private store: Store<any>) { }
 
   addInvoice(name: string) {
     if (name) {
-      this.invoices.unshift(this.createinvoice(name));
+      this.store.dispatch({
+        type: 'ADD_INVOICE',
+        payload: this.createinvoice(name)
+      });
     }
   }
 
@@ -45,6 +36,4 @@ export class InvoicingComponent implements OnInit {
     }
     return result;
   }
-
-
 }
