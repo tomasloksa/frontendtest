@@ -8,24 +8,20 @@ import { InvoicingComponent } from './components/invoicing/invoicing.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { FilterPipe } from './filter.pipe';
 import { StoreModule } from '@ngrx/store';
-import { invoices } from './reducers/invoice.reducer';
-import { SidebarComponent } from './components/invoicing/sidebar/sidebar.component';
-import { ContentComponent } from './components/invoicing/content/content.component';
+import { InvoiceReducer } from './reducers/invoice.reducer';
 
 @NgModule({
   declarations: [
     AppComponent,
     InvoicingComponent,
     WelcomeComponent,
-    FilterPipe,
-    SidebarComponent,
-    ContentComponent
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({ invoices })
+    StoreModule.forRoot({ invoices: InvoiceReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

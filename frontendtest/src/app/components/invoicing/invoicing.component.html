@@ -1,2 +1,24 @@
-<app-sidebar></app-sidebar>
-<app-content></app-content>
+<div class="sidebar">
+  <div class="search">
+    <input [(ngModel)]="searchText" class="form-control" type="search" placeholder="Hľadať" aria-label="Hľadať">
+  </div>
+  
+  <ul class="list-group scrollbar">
+    <div class="list-group-item invoice"
+        *ngFor="let invoice of invoices | filter: searchText; index as i">
+        {{i}} {{ invoice.name }}
+        <span *ngIf="invoice.price > 0.5" class="badge badge-pill badge-success">Zaplatená</span>
+        <span *ngIf="invoice.price <= 0.5" class="badge badge-pill badge-primary">Vytvorená</span>
+    </div>
+  </ul>
+  
+  <div class="paid-info">
+    <h5>Uhradených: {{paidCounter}}</h5>
+    <h5>Neuhradených: {{notPaidCounter}}</h5>
+  </div>
+</div>
+
+<form (submit)="addInvoice(invoiceName.value); invoiceName.value = ''" class="add-invoice">
+  <input #invoiceName class="form-control" type="" placeholder="Pridať faktúru" aria-label="Pridať faktúru">
+  <button class="btn btn-primary my-2 my-sm-0" type="submit">Pridať faktúru</button>
+</form>
