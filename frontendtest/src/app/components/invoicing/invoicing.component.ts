@@ -16,7 +16,9 @@ export class InvoicingComponent implements OnInit {
 
   constructor(private store: Store<any>) {
     store.select('invoices').subscribe(invoices => {
-      this.invoices = invoices;
+      this.invoices = invoices.invoices;
+      this.paidCounter = invoices.paid;
+      this.notPaidCounter = invoices.notPaid;
     });
   }
 
@@ -36,11 +38,6 @@ export class InvoicingComponent implements OnInit {
 
   private createinvoice(name = this.randomString(8)): Invoice {
     const price = Math.round(Math.random() * 10) / 10;
-    if (price > 0.5) {
-      this.paidCounter++;
-    } else {
-      this.notPaidCounter++;
-    }
     return { name, price };
   }
 
