@@ -1,28 +1,57 @@
 .sidebar {
   width: 25%;
-  display: inline-block;
+  float: left;
   border-style: solid;
   border-color: grey;
   border-width: 0 1px 0 0;
+  height: calc(100vh - 100px);
 
-  input {
-    padding: 0.5rem;
+  .search {
+    margin: 10px;
+  }
+
+  .scrollbar {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: calc(100% - 113px);
+    list-style-type: none;
+    padding: 0.4rem;
+    scrollbar-width: thin;
+  }
+
+  .invoice {
+    border: 1px grey solid;
+    border-radius: 3px;
+
+    span {
+      float: right;
+    }
+  }
+
+  .invoice:hover {
+    background-color: lightgrey;
   }
 
   .paid-info {
     width: 25%;
     position: fixed;
     bottom: 0;
-    padding: 0 0 1rem 1rem;
+    padding: 1.5rem;
     border-style: solid;
     border-color: grey;
     border-width: 1px 1px 0 0;
+    height: 100px;
   }
 }
 
 .add-invoice {
+  padding: 1rem;
   width: 75%;
   display: inline-block;
+
+  input {
+    margin-bottom: 0.5rem;
+  }
 
   button {
     margin: auto;
